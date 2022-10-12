@@ -1,0 +1,16 @@
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+    std::map<int, int> map;
+    std::vector<int> pairs;
+    for(int i=0; i<nums.size();i++){
+        int val = target - nums[i];
+        if(map.find(val)!=map.end()){
+            pairs.push_back(map.find(val)->second);
+            pairs.push_back(i);
+        }
+        map.insert(std::pair<int, int>(nums[i],i));
+    }
+    return pairs;
+    }
+};
